@@ -74,4 +74,4 @@ python EER_full.py --n_folder n --cp_num 100 --data_type vox2
 ```
 
 ### Acknowledgments
-This code is based on the implementation of [**SR_tutorial**](https://github.com/jymsuper/SpeakerRecognition_tutorial), [**VoxCeleb_trainer**](https://github.com/clovaai/voxceleb_trainer).
+This code is based on the implementation of [**SR_tutorial**](https://github.com/jymsuper/SpeakerRecognition_tutorial) and [**VoxCeleb_trainer**](https://github.com/clovaai/voxceleb_trainer). I would like to thank Youngmoon Jung, Joon Son Chung and Sung Ju Hwang for helpful discussions.
