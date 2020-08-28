@@ -18,7 +18,7 @@ In addition to the Python dependencies, `wget` and `ffmpeg` must be installed on
 
 #### Feature extraction
 
-In configure.py, specify the path to the directory. For example, in meta-SR/configure.py line 2:
+In configure.py, specify the path to the directory. For example, in `meta-SR/configure.py` line 2:
 ```
 save_path = '/root/home/voxceleb'
 ```
@@ -42,9 +42,26 @@ python train.py --loss_type prototypical --use_GC True --n_shot 1 --n_query 2 --
 ```
 if you want to use fixed length query, set `--use_variable False`.
 
+#### Evaluation
+If you use n-th folder k-th checkpoint
+- Speaker verification for full utterance:
+```
+python EER_full.py --n_folder n --cp_num k --data_type vox2
+```
+if you trained the model with VoxCeleb1, set `--data_type vox1`.
+
+- Speaker verification for short utterance:
+```
+
+```
+- Unseen speaker identification:
+```
+
+```
+
 #### Pretrained models
 A pretrained model can be downloaded from [here](https://drive.google.com/file/d/1uqRviTrmm578nw_OQgqtj3iAmc6eSnTI/view?usp=sharing).
-Put this pretrained model to `/saved_model/baseline_00n/`.
+Put this pretrained model to `meta-SR/saved_model/baseline_00n/`.
 ```
 python EER_full.py --n_folder n --cp_num 100 --data_type vox2
 ```
