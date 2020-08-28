@@ -43,7 +43,7 @@ python train.py --loss_type prototypical --use_GC True --n_shot 1 --n_query 2 --
 if you want to use fixed length query, set `--use_variable False`.
 
 #### Evaluation
-If you use __n-th__ folder __k-th__ checkpoint
+If you use __n-th__ folder & __k-th__ checkpoint
 - Speaker verification for full utterance:
 ```
 python EER_full.py --n_folder n --cp_num k --data_type vox2
@@ -52,7 +52,7 @@ if you trained the model with VoxCeleb1, set `--data_type vox1`.
 
 - Speaker verification for short utterance:
 ```
-
+python EER_short.py --n_folder n --cp_num k
 ```
 - Unseen speaker identification:
 ```
