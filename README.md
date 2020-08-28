@@ -41,3 +41,12 @@ python train.py --loss_type prototypical --use_GC False --n_shot 1 --n_query 2 -
 python train.py --loss_type prototypical --use_GC True --n_shot 1 --n_query 2 --use_variable True --nb_class_train 100
 ```
 if you want to use fixed length query, set `--use_variable False`.
+
+#### Pretrained models
+A pretrained model can be downloaded from [here](https://drive.google.com/file/d/1uqRviTrmm578nw_OQgqtj3iAmc6eSnTI/view?usp=sharing).
+Put this pretrained model to `/saved_model/baseline_00n/`.
+```
+python EER_full.py --n_folder n --cp_num 100 --data_type vox2
+```
+
+
