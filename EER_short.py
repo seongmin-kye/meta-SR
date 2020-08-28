@@ -22,11 +22,6 @@ parser.add_argument('--use_cuda', type=str2bool, default=True, help='Use cuda.')
 parser.add_argument('--gpu', type=int, default=0, help='GPU device number.')
 parser.add_argument('--n_folder', type=int, default=0, help='Number of folder.')
 parser.add_argument('--cp_num', type=int, default=100, help='Number of checkpoint.')
-# Episode setting
-parser.add_argument('--n_shot', type=int, default=1, help='Number of support set per class.')
-parser.add_argument('--n_query', type=int, default=5, help='Number of queries per class.')
-parser.add_argument('--nb_class_test', type=int, default=50, help='Number of way for test episode.')
-parser.add_argument('--nb_episode', type=int, default=1000, help='Number of episode.')
 # Test setting
 parser.add_argument('--test_length', type=int, default=500, help='Length of test utterance. (100=1s)')
 
