@@ -22,7 +22,7 @@ In configure.py, specify the path to the directory. For example, in `meta-SR/con
 ```
 save_path = '/root/home/voxceleb'
 ```
-Then, run extract acoustic feature (mel filterbank-40).
+Then, extract acoustic feature (mel filterbank-40).
 ```
 python feat_extract/feature_extraction.py
 ```
@@ -67,5 +67,3 @@ Put this pretrained model to `meta-SR/saved_model/baseline_00n/`.
 ```
 python EER_full.py --n_folder n --cp_num 100 --data_type vox2
 ```
-
-
