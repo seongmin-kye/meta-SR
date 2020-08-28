@@ -43,7 +43,7 @@ python train.py --loss_type prototypical --use_GC True --n_shot 1 --n_query 2 --
 if you want to use fixed length query, set `--use_variable False`.
 
 #### Evaluation
-If you use n-th folder k-th checkpoint
+If you use __n-th__ folder __k-th__ checkpoint
 - Speaker verification for full utterance:
 ```
 python EER_full.py --n_folder n --cp_num k --data_type vox2
