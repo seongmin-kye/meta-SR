@@ -11,7 +11,7 @@ In practical settings, a speaker recognition system needs to identify a speaker 
 
 ### Data preparation
 
-The following script can be used to download and prepare the VoxCeleb dataset for training. This preparation code is based on [VoxCeleb_trainer](https://github.com/clovaai/voxceleb_trainer), but slightly changed.
+The following script can be used to download and prepare the VoxCeleb dataset for training. This preparation code is based on [**VoxCeleb_trainer**](https://github.com/clovaai/voxceleb_trainer), but slightly changed.
 
 ```
 python dataprep.py --save_path /root/home/voxceleb --download --user USERNAME --password PASSWORD 
@@ -72,3 +72,6 @@ Put this pretrained model to `meta-SR/saved_model/baseline_00n/`.
 ```
 python EER_full.py --n_folder n --cp_num 100 --data_type vox2
 ```
+
+### Acknowledgments
+This code is based on the implementation of [**SR_tutorial**](https://github.com/jymsuper/SpeakerRecognition_tutorial), [**VoxCeleb_trainer**](https://github.com/clovaai/voxceleb_trainer).
