@@ -66,13 +66,6 @@ ex) test on 2-second utterance, set `--test_length 200`.
 python identification.py --n_folder n --cp_num k --nb_class_test 100 --test_length 100
 ```
 
-### Pretrained models
-A pretrained model can be downloaded from [here](https://drive.google.com/file/d/1uqRviTrmm578nw_OQgqtj3iAmc6eSnTI/view?usp=sharing).
-Put this pretrained model to `meta-SR/saved_model/baseline_00n/`.
-```
-python EER_full.py --n_folder n --cp_num 100 --data_type vox2
-```
-
 ### Citation
 Please cite the following if you make use of the code.
 ```
