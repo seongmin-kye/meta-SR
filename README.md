@@ -5,7 +5,7 @@ Pytorch code for following paper:
 * **Conference** : Interspeech, 2020.
 
 ### Abstract
-<img align="middle" width="700" src="https://github.com/seongmin-kye/meta-SR/blob/master/overview.PNG">
+<img align="middle" width="1000" src="https://github.com/seongmin-kye/meta-SR/blob/master/overview.PNG">
 
 In practical settings, a speaker recognition system needs to identify a speaker given a short utterance, while the enrollment utterance may be relatively long. However, existing speaker recognition models perform poorly with such short utterances. To solve this problem, we introduce a meta-learning framework for imbalance length pairs. Specifically, we use a Prototypical Networks and train it with a support set of long utterances and a query set of short utterances of varying lengths. Further, since optimizing only for the classes in the given episode may be insufficient for learning discriminative embeddings for unseen classes, we additionally enforce the model to classify both the support and the query set against the entire set of classes in the training set. By combining these two learning schemes, our model outperforms existing state-of-the-art speaker verification models learned with a standard supervised learning framework on short utterance (1-2 seconds) on the VoxCeleb datasets. We also validate our proposed model for unseen speaker identification, on which it also achieves significant performance gains over the existing approaches.
 
