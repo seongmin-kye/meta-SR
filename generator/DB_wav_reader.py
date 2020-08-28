@@ -7,8 +7,6 @@ import sys
 import numpy as np
 import pandas as pd
 
-from configure import SAMPLE_RATE
-
 np.set_printoptions(threshold=sys.maxsize)
 pd.set_option('display.max_rows', 500)
 pd.set_option('display.max_columns', 500)

@@ -31,7 +31,7 @@ log_dir = 'saved_model/baseline_' + str(args.n_folder).zfill(3)
 
 def main():
     # Load pair and test data
-    veri_test_dir = c.VERI_TEST_DIR
+    veri_test_dir = 'lists/trial_pair_Verification.txt' #Original Vox1 test set
     test_feat_dir = [c.TEST_FEAT_DIR]
     test_DB = get_DB(test_feat_dir)
     n_classes = 5994 if args.data_type == 'vox2' else 1211

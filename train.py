@@ -50,7 +50,6 @@ def main():
         torch.manual_seed(args.seed)
         np.random.seed(args.seed)
         cudnn.deterministic = True
-        cudnn.benchmark = False
         if args.use_cuda:
             torch.cuda.manual_seed(args.seed)
             torch.cuda.manual_seed_all(args.seed)
@@ -164,7 +163,7 @@ def train(train_generator, model, objective, optimizer, n_episode, log_dir, sche
             torch.save({'epoch': epoch + 1, 'state_dict': model.state_dict(), 'optimizer': optimizer.state_dict()},
                        '{}/checkpoint_{}.pth'.format(log_dir, str(epoch).zfill(3)))
 
-    # find position of lowest validation loss
+    # find position of lowest training loss
     minposs = avg_train_losses.index(min(avg_train_losses)) + 1
     print('Lowest training loss at epoch %d' % minposs)
 
