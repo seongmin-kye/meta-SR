@@ -40,3 +40,4 @@ python train.py --loss_type prototypical --use_GC False --n_shot 1 --n_query 2 -
 ```
 python train.py --loss_type prototypical --use_GC True --n_shot 1 --n_query 2 --use_variable True --nb_class_train 100
 ```
+if you want to use fixed length query, set '--use_variable False'.
