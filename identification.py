@@ -11,7 +11,7 @@ from generator.SR_Dataset import read_MFB_train as read_MFB
 from str2bool import str2bool
 import configure as c
 
-from model.model_normalize import background_resnet
+from model.model import background_resnet
 from generator.meta_generator_test import metaGenerator
 
 parser = argparse.ArgumentParser()

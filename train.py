@@ -13,7 +13,7 @@ from generator.SR_Dataset import read_MFB_train as read_MFB
 import torch
 import torch.optim as optim
 
-from model.model_normalize import background_resnet
+from model.model import background_resnet
 from generator.meta_generator import metaGenerator
 from losses.prototypical import Prototypical
 from losses.softmax import SoftmaxLoss

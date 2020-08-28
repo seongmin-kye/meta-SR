@@ -13,7 +13,7 @@ from torch.autograd import Variable
 from generator.SR_Dataset import *
 from str2bool import str2bool
 from generator.DB_wav_reader import read_feats_structure
-from model.model_normalize import background_resnet
+from model.model import background_resnet
 
 # Training settings
 parser = argparse.ArgumentParser()
