@@ -28,8 +28,8 @@ parser.add_argument('--loss_type', type=str, default='prototypical', help='proto
 parser.add_argument('--use_GC', type=str2bool, default=True, help='Use global classification logit.')
 
 max_epoch = 301
-parser.add_argument('--use_checkpoint', type=str2bool, default=True, help='Use checkpoint.')
-parser.add_argument('--cp_num', type=int, default=100, help='Number of checkpoint.')
+parser.add_argument('--use_checkpoint', type=str2bool, default=False, help='Use checkpoint.')
+parser.add_argument('--cp_num', type=int, default=0, help='Number of checkpoint.')
 # episode setting
 parser.add_argument('--n_shot', type=int, default=1, help='Number of support set per class.')
 parser.add_argument('--n_query', type=int, default=2, help='Number of queries per class.')
