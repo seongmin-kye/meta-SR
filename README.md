@@ -4,10 +4,12 @@ Pytorch code for following paper:
 * **Author** : Seong Min Kye, [Youngmoon Jung](https://github.com/jymsuper), [Hae Beom Lee](https://github.com/haebeom-lee), [Sung Ju Hwang](http://www.sungjuhwang.com), Hoirin Kim 
 * **Conference** : Interspeech, 2020.
 
-#### Abstract
+### Abstract
+<img align="middle" width="700" src="https://github.com/seongmin-kye/meta-SR/blob/master/overview.PNG">
+
 In practical settings, a speaker recognition system needs to identify a speaker given a short utterance, while the enrollment utterance may be relatively long. However, existing speaker recognition models perform poorly with such short utterances. To solve this problem, we introduce a meta-learning framework for imbalance length pairs. Specifically, we use a Prototypical Networks and train it with a support set of long utterances and a query set of short utterances of varying lengths. Further, since optimizing only for the classes in the given episode may be insufficient for learning discriminative embeddings for unseen classes, we additionally enforce the model to classify both the support and the query set against the entire set of classes in the training set. By combining these two learning schemes, our model outperforms existing state-of-the-art speaker verification models learned with a standard supervised learning framework on short utterance (1-2 seconds) on the VoxCeleb datasets. We also validate our proposed model for unseen speaker identification, on which it also achieves significant performance gains over the existing approaches.
 
-#### Data preparation
+### Data preparation
 
 The following script can be used to download and prepare the VoxCeleb dataset for training. This preparation code is based on [VoxCeleb_trainer](https://github.com/clovaai/voxceleb_trainer), but slightly changed.
 
@@ -19,7 +21,7 @@ python dataprep.py --save_path /root/home/voxceleb --convert
 
 In addition to the Python dependencies, `wget` and `ffmpeg` must be installed on the system.
 
-#### Feature extraction
+### Feature extraction
 
 In configure.py, specify the path to the directory. For example, in `meta-SR/configure.py` line 2:
 ```
@@ -30,7 +32,7 @@ Then, extract acoustic feature (mel filterbank-40).
 python feat_extract/feature_extraction.py
 ```
 
-#### Training examples
+### Training examples
 - Softmax:
 ```
 python train.py --loss_type softmax --use_GC False --n_shot 1 --n_query 0 --use_variable False --nb_class_train 256
@@ -45,7 +47,7 @@ python train.py --loss_type prototypical --use_GC True --n_shot 1 --n_query 2 --
 ```
 if you want to use fixed length query, set `--use_variable False`.
 
-#### Evaluation
+### Evaluation
 If you use __n-th__ folder & __k-th__ checkpoint
 - Speaker verification for full utterance:
 ```
@@ -64,7 +66,7 @@ ex) test on 2-second utterance, set `--test_length 200`.
 python identification.py --n_folder n --cp_num k --nb_class_test 100 --test_length 100
 ```
 
-#### Pretrained models
+### Pretrained models
 A pretrained model can be downloaded from [here](https://drive.google.com/file/d/1uqRviTrmm578nw_OQgqtj3iAmc6eSnTI/view?usp=sharing).
 Put this pretrained model to `meta-SR/saved_model/baseline_00n/`.
 ```
