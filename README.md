@@ -29,5 +29,13 @@ python feat_extract/feature_extraction.py
 
 #### Training examples
 - Softmax:
-- Prototypical without global classification (Softmax):
-- Prototypical with global classification (Softmax):
+```
+
+```
+- Prototypical without global classification:
+```
+```
+- Prototypical with global classification:
+```
+
+```
