@@ -73,5 +73,15 @@ Put this pretrained model to `meta-SR/saved_model/baseline_00n/`.
 python EER_full.py --n_folder n --cp_num 100 --data_type vox2
 ```
 
+### Citation
+Please cite the following if you make use of the code.
+```
+@inproceedings{kye2020meta,
+  title={Meta-Learning for Short Utterance Speaker Recognition with Imbalance Length Pairs},
+  author={Kye, Seong Min and Jung, Youngmoon and Lee, Hae Beom and Hwang, Sung Ju and Kim, Hoirin},
+  booktitle={Interspeech},
+  year={2020}
+}
+```
 ### Acknowledgments
 This code is based on the implementation of [**SR_tutorial**](https://github.com/jymsuper/SpeakerRecognition_tutorial) and [**VoxCeleb_trainer**](https://github.com/clovaai/voxceleb_trainer). I would like to thank Youngmoon Jung, Joon Son Chung and Sung Ju Hwang for helpful discussions.
