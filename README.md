@@ -52,11 +52,13 @@ if you trained the model with VoxCeleb1, set `--data_type vox1`.
 
 - Speaker verification for short utterance:
 ```
-python EER_short.py --n_folder n --cp_num k
+python EER_short.py --n_folder n --cp_num k --test_length 100
 ```
+ex) test on 2-second utterance, set `--test_length 200`.
+
 - Unseen speaker identification:
 ```
-
+python identification.py --n_folder n --cp_num k --nb_class_test 100 --test_length 100
 ```
 
 #### Pretrained models
