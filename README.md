@@ -22,3 +22,12 @@ In configure.py, specify the path to the directory. For example, in meta-SR/conf
 ```
 save_path = '/root/home/voxceleb'
 ```
+Then, run extract acoustic feature (mel filterbank-40).
+```
+python feat_extract/feature_extraction.py
+```
+
+#### Training examples
+- Softmax:
+- Prototypical without global classification (Softmax):
+- Prototypical with global classification (Softmax):
