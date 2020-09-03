@@ -72,7 +72,7 @@ python identification.py --n_folder n --cp_num k --nb_class_test 100 --test_leng
 
 ### Pretrained model
 A pretrained model can be downloaded from [here](https://drive.google.com/file/d/1uqRviTrmm578nw_OQgqtj3iAmc6eSnTI/view?usp=sharing). 
-If you put this model into baseline_000, and run following scrpt, you can get `EER 2.08`.
+If you put this model into `meta-SR/saved_model/baseline_000`, and run following scrpt, you can get `EER 2.08`.
 ```
 python EER_full.py --n_folder 0 --cp_num 100 --data_type vox2
 ```
