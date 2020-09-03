@@ -108,7 +108,7 @@ def train(train_generator, model, objective, optimizer, n_episode, log_dir, sche
             accuracy_e = AverageMeter()
             accuracy_g = AverageMeter()
 
-        inputs, targets_g = data  # target size:(batch size,1), input size:(batch size, 1, dim, win)
+        inputs, targets_g = data  # target size:(batch size), input size:(batch size, 1, n_filter, T)
 
         if args.loss_type == 'softmax':
             loss, acc_g = objective(inputs, targets_g, model)

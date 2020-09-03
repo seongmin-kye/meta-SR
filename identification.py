@@ -57,12 +57,12 @@ def evaluation(test_generator, model, use_cuda):
     ans_episode, n_episode = 0, 0
     log_interval = 100
 
-    # switch to train mode
+    # switch to test mode
     model.eval()
     with torch.no_grad():
-        # for batch_idx, (data) in enumerate(train_loader):
+        # for batch_idx, (data) in enumerate(test_loader):
         for t, (data) in test_generator:
-            inputs, targets_g = data  # target size:(batch size,1), input size:(batch size, 1, dim, win)
+            inputs, targets_g = data  # target size:(batch size), input size:(batch size, 1, n_filter, T)
             support, query = inputs
 
             #normalize sliced input
@@ -78,14 +78,14 @@ def evaluation(test_generator, model, use_cuda):
             targets_e = tuple([i for i in range(args.nb_class_test)]) * (args.n_query)
             targets_e = torch.tensor(targets_e, dtype=torch.long).cuda()
 
-            support = model(support)  # out size:(batch size, #classes), for softmax
-            query = model(query)
+            support = model(support)  # out size:(n_support * n_class, dim_embed)
+            query = model(query)      # out size:(n_query   * n_class, dim_embed)
 
             support = support.reshape(args.n_shot, args.nb_class_test, -1)
             prototype = support.mean(dim=0)
             angle_e = F.linear(query, F.normalize(prototype))
 
-            # calculate accuracy of predictions in the current batch
+            # calculate accuracy of predictions in the current episode
             temp_ans = (torch.max(angle_e, 1)[1].long().view(targets_e.size()) == targets_e).sum().item()
             total_acc.append(temp_ans/angle_e.size(0) * 100)
 
