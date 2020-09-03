@@ -13,7 +13,7 @@ TEST_AUDIO_VOX1 = save_path+'/voxceleb1/test/wav'
 TEST_FEAT_VOX1= save_path+'/voxceleb1/test/feat'
 
 USE_LOGSCALE = True
-USE_NORM=  False
+USE_NORM=  True
 USE_DELTA = False
 USE_SCALE = False
 

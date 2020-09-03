@@ -36,6 +36,9 @@ def main():
     test_DB = get_DB(test_feat_dir)
     n_classes = 5994 if args.data_type == 'vox2' else 1211
 
+    # print the experiment configuration
+    print('\nNumber of classes (speakers) in test set:\n{}\n'.format(len(set(test_DB['labels']))))
+
     # Load model from checkpoint
     model = load_model(args.use_cuda, log_dir, args.cp_num, n_classes)
 
@@ -70,9 +73,8 @@ def load_model(use_cuda, log_dir, cp_num, n_classes):
     if use_cuda:
         model.cuda()
     print('=> loading checkpoint')
-    # original saved file with DataParallel
+    # load pre-trained parameters
     checkpoint = torch.load(log_dir + '/checkpoint_' + str(cp_num).zfill(3) + '.pth')
-    # create new OrderedDict that does not contain `module.`
     model.load_state_dict(checkpoint['state_dict'])
     model.eval()
     return model
@@ -84,7 +86,7 @@ def get_d_vector(filename, model):
 
     input = normalize_frames(input, Scale=c.USE_SCALE)
     TT = ToTensorTestInput()  # torch tensor:(1, n_dims, n_frames)
-    input = TT(input)  # size : (n_frames, 1, 40, 40)
+    input = TT(input)  # size : (n_frames, 1, n_filter, T)
     input = Variable(input)
     with torch.no_grad():
         if args.use_cuda:
@@ -128,7 +130,6 @@ def get_eer(score_list, label_list):
     intersection = abs(1 - tpr - fpr)
     DCF2 = 100 * (0.01 * (1 - tpr) + 0.99 * fpr)
     DCF3 = 1000 * (0.001 * (1 - tpr) + 0.999 * fpr)
-    # print("EER: %0.5f, Threshold : %0.5f" %(eer, eer_threshold))
     print("Epoch=%d  EER= %.2f  Thres= %0.5f  DCF0.01= %.3f  DCF0.001= %.3f" % (
     args.cp_num, 100 * fpr[np.argmin(intersection)], eer_threshold, np.min(DCF2), np.min(DCF3)))
 

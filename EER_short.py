@@ -39,6 +39,10 @@ def main():
     test_feat_dir = [c.TRAIN_FEAT_DIR_1, c.TEST_FEAT_DIR] # use [train+test] set of VoxCeleb1
     # test_feat_dir = [c.TEST_FEAT_DIR]                   # use test set of VoxCeleb1
     test_DB = get_DB(test_feat_dir)
+
+    # print the experiment configuration
+    print('\nNumber of classes (speakers) in test set:\n{}\n'.format(len(set(test_DB['labels']))))
+
     eer, eer_threshold = enroll_and_verification(model, test_DB)
 
 def get_DB(feat_dir):
@@ -54,7 +58,7 @@ def load_model(use_cuda, log_dir, cp_num, n_classes):
     if use_cuda:
         model.cuda()
     print('=> loading checkpoint')
-
+    # load pre-trained parameters
     checkpoint = torch.load(log_dir + '/checkpoint_' + str(cp_num).zfill(3) + '.pth')
     model.load_state_dict(checkpoint['state_dict'])
     model.eval()
@@ -79,7 +83,7 @@ def get_d_vector(filename, model, mode='test'):
 
     input = normalize_frames(input, Scale=c.USE_SCALE)
     TT = ToTensorTestInput()  # torch tensor:(1, n_dims, n_frames)
-    input = TT(input)  # size : (n_frames, 1, 40, 40)
+    input = TT(input)  # size : (n_frames, 1, n_filter, T)
     input = Variable(input)
     with torch.no_grad():
         if args.use_cuda:

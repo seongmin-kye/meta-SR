@@ -37,9 +37,8 @@ log_dir = 'saved_model/baseline_' + str(args.n_folder).zfill(3)  # where to save
 def load_model(log_dir, cp_num, n_classes=5994):
     model = background_resnet(num_classes=n_classes)
     print('=> loading checkpoint')
+    # load pre-trained parameters
     checkpoint = torch.load(log_dir + '/checkpoint_' + str(cp_num).zfill(3) + '.pth')
-
-    # create new OrderedDict that does not contain `module.`
     model.load_state_dict(checkpoint['state_dict'])
 
     return model
@@ -106,7 +105,7 @@ def main():
     n_classes = 5994
 
     # print the experiment configuration
-    print('\nNumber of classes (speakers) in test set:\n{}\n'.format(n_classes))
+    print('\nNumber of classes (speakers) in test set:\n{}\n'.format(len(set(test_DB['labels']))))
 
     if not os.path.exists(log_dir):
         os.makedirs(log_dir)
@@ -115,11 +114,11 @@ def main():
     if args.use_cuda:
         model.cuda()
 
-    # to track the average training loss per epoch as the model trains
+    # make generator for unseen speaker identification
     test_generator = metaGenerator(test_DB, read_MFB, enroll_length=args.enroll_length, test_length=args.test_length,
                                    nb_classes=args.nb_class_test, n_support=args.n_shot, n_query=args.n_query,
                                    max_iter=args.nb_episode, xp=np)
-    # train for one epoch
+    # evaluate
     evaluation(test_generator, model, args.use_cuda)
 
 if __name__ == '__main__':
