@@ -87,5 +87,6 @@ Please cite the following if you make use of the code.
   year={2020}
 }
 ```
+
 ### Acknowledgments
 This code is based on the implementation of [**SR_tutorial**](https://github.com/jymsuper/SpeakerRecognition_tutorial) and [**VoxCeleb_trainer**](https://github.com/clovaai/voxceleb_trainer). I would like to thank Youngmoon Jung, Joon Son Chung and Sung Ju Hwang for helpful discussions.
