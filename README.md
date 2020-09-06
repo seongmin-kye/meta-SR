@@ -7,7 +7,7 @@ Pytorch code for following paper:
 ### Abstract
 <img align="middle" width="1000" src="https://github.com/seongmin-kye/meta-SR/blob/master/overview.png">
 
-In practical settings, a speaker recognition system needs to identify a speaker given a short utterance, while the enrollment utterance may be relatively long. However, existing speaker recognition models perform poorly with such short utterances. To solve this problem, we introduce a meta-learning framework for imbalance length pairs. Specifically, we use a Prototypical Networks and train it with a support set of long utterances and a query set of short utterances of varying lengths. Further, since optimizing only for the classes in the given episode may be insufficient for learning discriminative embeddings for unseen classes, we additionally enforce the model to classify both the support and the query set against the entire set of classes in the training set. By combining these two learning schemes, our model outperforms existing state-of-the-art speaker verification models learned with a standard supervised learning framework on short utterance (1-2 seconds) on the VoxCeleb datasets. We also validate our proposed model for unseen speaker identification, on which it also achieves significant performance gains over the existing approaches.
+In practical settings, a speaker recognition system needs to identify a speaker given a short utterance, while the enrollment utterance may be relatively long. However, existing speaker recognition models perform poorly with such short utterances. To solve this problem, we introduce a meta-learning framework for imbalance length pairs. Specifically, we use a Prototypical Networks and train it with a support set of long utterances and a query set of short utterances of varying lengths. Further, since optimizing only for the classes in the given episode may be insufficient for learning disminative embeddings for unseen classes, we additionally enforce the model to classify both the support and the query set against the entire set of classes in the training set. By combining these two learning schemes, our model outperforms existing state-of-the-art speaker verification models learned with a standard supervised learning framework on short utterance (1-2 seconds) on the VoxCeleb datasets. We also validate our proposed model for unseen speaker identification, on which it also achieves significant performance gains over the existing approaches.
 
 ### Requirements
 * Python 3.6
@@ -72,7 +72,7 @@ python identification.py --n_folder n --cp_num k --nb_class_test 100 --test_leng
 
 ### Pretrained model
 A pretrained model can be downloaded from [here](https://drive.google.com/file/d/1uqRviTrmm578nw_OQgqtj3iAmc6eSnTI/view?usp=sharing). 
-If you put this model into `meta-SR/saved_model/baseline_000`, and run following scrpt, you can get `EER 2.08`.
+If you put this model into `meta-SR/saved_model/baseline_000`, and run following script, you can get `EER 2.08`.
 ```
 python EER_full.py --n_folder 0 --cp_num 100 --data_type vox2
 ```
