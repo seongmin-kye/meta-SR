@@ -6,6 +6,7 @@ class Prototypical(nn.Module):
     def __init__(self):
         super(Prototypical, self).__init__()
 
+        self.zero = torch.tensor(0).cuda()
         self.criterion = torch.nn.CrossEntropyLoss()
         print('Initialized Prototypical Loss')
 
@@ -22,8 +23,8 @@ class Prototypical(nn.Module):
         loss_e = self.criterion(logit_e, label_e)
         acc_e = self.accuracy(logit_e, label_e)
 
-        loss_g = 0
-        acc_g = 0
+        loss_g = self.zero
+        acc_g = self.zero
         if use_GC:
             inputs = torch.cat((support, query), dim=0)
             logit_g = F.linear(inputs, F.normalize(model.weight))
